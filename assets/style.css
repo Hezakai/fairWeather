@@ -1,0 +1,48 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    background-image: url(background.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    color: rgb(0, 0, 0);
+    min-height: 100vh;
+}
+  
+  .container {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  #searchSec {
+    flex-basis: 20%;
+    margin-right: 20px;
+  }
+  
+  #forecastSec {
+    flex-basis: 30%;
+  }
+  
+  #fiveDaySec {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .card {
+    margin: 10px;
+    flex-basis: calc(50% - 20px);
+  }
+
+  h1 {
+    color: #ffffff; /* dark grey text */
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* black outline */
+  }
+  

@@ -16,7 +16,7 @@ searchBtn.addEventListener('click', function(e) {
 })
 
 function callCurrentF(city) {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=imperial`)
     .then(response => response.json())
     .then(data => {
         console.log(data)
@@ -31,20 +31,23 @@ function callCurrentF(city) {
 
 function call5D(lat, lon) {
     fiveDaySection.innerHTML = '';
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=5&appid=${API_KEY}`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=imperial`)
     .then(response => response.json())
     .then(fiveData => {
         console.log(fiveData)
         
         fiveData.list.forEach(data => {
-            let date = new Date(data.dt * 1000).toLocaleDateString()
             let time = new Date(data.dt * 1000).toLocaleTimeString()
-            let temp = data.main.temp
-            let desc = data.weather[0].description
-            displayFiveDay(date, time, temp, desc)
+            if (time === '12:00:00 PM') {
+                let date = new Date(data.dt * 1000).toLocaleDateString()
+                let temp = data.main.temp
+                let desc = data.weather[0].description
+                displayFiveDay(date, time, temp, desc)
+            }
         })
     })
 }
+
 
 function displayCurrentF(city, desc, temp, humidity, wind) {
     cityCurrSection.innerHTML = `
